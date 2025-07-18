@@ -1,0 +1,40 @@
+#focus-timer{
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    justify-content: center;
+  }
+  
+#heading{
+font-size: 4rem;
+margin-bottom: 20vmin;
+}
+
+#timer{
+display: flex;
+justify-content: center;
+align-items: center;
+font-size: 4rem;
+width: 25vmin;
+height: 25vmin;
+border-radius: 50%;
+border: 5px solid rgba(90, 90, 90, 0.687);
+}
+
+#focus-timer button{
+color: white;
+border: none;
+background-color: gray;
+border-radius: 5px;
+font-size: 1.3rem;
+padding: 1vmin 2vmin;
+cursor: pointer;
+}
+
+#timer-buttons-div{
+display: flex;
+gap: 1vmin;
+margin-top: 20vmin;
+}

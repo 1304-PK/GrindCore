@@ -8,8 +8,7 @@ const FocusTimer = () => {
     const [run, toggleRun] = useState(false)
     const [breakTime, setBreakTime] = useState(1)
     const [focusTime, setFocusTime] = useState(1)
-    const [breakTimeValue, setBreakTimeValue] = useState(1)
-    const [focusTimeValue, setFocusTimeValue] = useState(1)
+    const [mode, setMode] = useState('Focus')
 
     const updateTimer = () => {
         if (button === "Start") {
@@ -46,16 +45,31 @@ const FocusTimer = () => {
 
     // Handle completion of Timer
     useEffect(() => {
-        if (minute === Number(focusTimeValue)){
-            alert('Timer Completed')
-            toggleRun(false)
+        if (mode === 'Focus') {
+            if (minute === Number(focusTime)) {
+                setSecond(0)
+                setMinute(0)
+                setMode('Break')
+            }
         }
+        else {
+            if (minute === Number(breakTime)) {
+                setSecond(0)
+                setMinute(0)
+                toggleRun(false)
+                setMode('Focus')
+                toggleButton("Start")
+            }
+        }
+
     }, [minute])
+
+    // Change Modes on completion of Timer
 
     return (
         <>
             <div id="main-container">
-                <h1 id='heading'>Focus Timer</h1>
+                <h1 id='heading'>{mode}</h1>
                 <div id='timer'>
                     {minute}:{second}
                 </div>
@@ -71,16 +85,16 @@ const FocusTimer = () => {
                 <form>
                     <div>
                         <label htmlFor="focus-timer-input">Focus Timer</label>
-                        <input type="number" id="focus-timer-input" value={focusTimeValue} onChange={(e) => {setFocusTimeValue(e.target.value)}} required/>
+                        <input type="number" id="focus-timer-input" value={focusTime} onChange={(e) => { setFocusTime(e.target.value) }} required />
                     </div>
                     <div>
                         <label htmlFor="break-time">Break</label>
-                        <input type="number" id="break-timer"  value={breakTimeValue} onChange={(e) => {setBreakTimeValue(e.target.value)}} required/>
+                        <input type="number" id="break-timer" value={breakTime} onChange={(e) => { setBreakTime(e.target.value) }} required />
                     </div>
 
                     <div id='form-buttons'>
-                        <button id="cancel-form" onClick={(e) => {e.preventDefault();document.getElementById('timer-settings-dialog').close()}}>Cancel</button>
-                        <button id="submit-form" onClick={(e) => {e.preventDefault();document.getElementById('timer-settings-dialog').close()}}>Submit</button>
+                        <button id="cancel-form" onClick={(e) => { e.preventDefault(); document.getElementById('timer-settings-dialog').close() }}>Cancel</button>
+                        <button id="submit-form" onClick={(e) => { e.preventDefault(); document.getElementById('timer-settings-dialog').close() }}>Submit</button>
                     </div>
                 </form>
             </dialog>

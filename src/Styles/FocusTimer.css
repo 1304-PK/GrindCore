@@ -1,47 +1,47 @@
-*{
+* {
     padding: 0;
     margin: 0;
 }
 
-#main-container{
+#main-container {
     background-image: url(../assets/timer_bg.png);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-  }
-  
-#heading{
-font-size: 4rem;
-margin-bottom: 20vmin;
 }
 
-#timer{
-display: flex;
-justify-content: center;
-align-items: center;
-font-size: 4rem;
-width: 25vmin;
-height: 25vmin;
-border-radius: 50%;
-border: 5px solid rgba(90, 90, 90, 0.687);
+#heading {
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 20vmin;
 }
 
-#timer-buttons-div button{
-color: white;
-border: none;
-background-color: gray;
-border-radius: 5px;
-font-size: 1.3rem;
-padding: 1vmin 2vmin;
-cursor: pointer;
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: clamp(2rem, 6vw, 4rem);
+    width: 25vmin;
+    height: 25vmin;
+    border-radius: 50%;
+    border: 5px solid rgba(90, 90, 90, 0.687);
 }
 
-#timer-buttons-div{
-display: flex;
-gap: 1vmin;
-margin-top: 20vmin;
+#timer-buttons-div button {
+    color: white;
+    border: none;
+    background-color: gray;
+    border-radius: 5px;
+    font-size: clamp(1rem, 5vw, 1.3rem);
+    padding: 1vmin 2vmin;
+    cursor: pointer;
+}
+
+#timer-buttons-div {
+    display: flex;
+    gap: 1vmin;
+    margin-top: 20vmin;
 }
 
 /* DIALOG */
@@ -53,26 +53,26 @@ margin-top: 20vmin;
     border-radius: 8px;
 }
 
-#timer-settings-dialog form{
+#timer-settings-dialog form {
     margin-top: 3vmin;
     display: flex;
     flex-direction: column;
     gap: 1vmin;
 }
 
-#timer-settings-dialog form div{
+#timer-settings-dialog form div {
     flex: 1;
     justify-content: space-between;
     display: flex;
 }
 
-#form-buttons{
+#form-buttons {
     justify-content: space-around !important;
     margin-top: 3vmin;
     justify-content: space;
 }
 
-#submit-form{
+#submit-form {
     padding: 0.8vmin 1vmin;
     font-size: 1rem;
     border: none;
@@ -82,7 +82,7 @@ margin-top: 20vmin;
     cursor: pointer;
 }
 
-#cancel-form{
+#cancel-form {
     padding: 0.8vmin 1vmin;
     font-size: 1rem;
     border: none;
